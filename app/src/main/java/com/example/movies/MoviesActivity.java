@@ -35,13 +35,13 @@ public class MoviesActivity extends AppCompatActivity {
         ArrayAdapter adapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, restaurants);
         mListView.setAdapter(adapter);
 
-//        mListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-//            @Override
-//            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-//                String restaurant = ((TextView)view).getText().toString();
-//                Toast.makeText(MoviesActivity.this, restaurant, Toast.LENGTH_LONG).show();
-//            }
-//        });
+        mListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                String restaurant = ((TextView)view).getText().toString();
+                Toast.makeText(MoviesActivity.this, restaurant, Toast.LENGTH_LONG).show();
+            }
+        });
 
         Intent intent = getIntent();
         String search = intent.getStringExtra("text");
