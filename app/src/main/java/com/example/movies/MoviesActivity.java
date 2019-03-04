@@ -16,11 +16,13 @@ import butterknife.ButterKnife;
 
 public class MoviesActivity extends AppCompatActivity {
 
+
     private String[] restaurants = new String[] {"Mi Mero Mole", "Mother's Bistro",
             "Life of Pie", "Screen Door", "Luc Lac", "Sweet Basil",
             "Slappy Cakes", "Equinox", "Miss Delta's", "Andina",
             "Lardo", "Portland City Grill", "Fat Head's Brewery",
             "Chipotle", "Subway"};
+
 
     private ListView mListView;
 
