@@ -19,9 +19,8 @@ public class MoviesActivity extends AppCompatActivity {
 
     private String[] restaurants = new String[] {"Good Will Hunting (1997)", " Arrival (2016)",
             "Lost In Translation (2003)", "The Princess Bride (1987)", "The Terminator (1984)", "No Country For Old Men (2007)",
-            "Predator (1987)", "Indiana Jones And The Last Crusade (1989)", "Miss Delta's", "Andina",
-            "Lardo", "Portland City Grill", "Fat Head's Brewery",
-            "Chipotle", "Subway"};
+            "Predator (1987)", "Indiana Jones And The Last Crusade (1989)", "True Romance (1993)", " The Social Network (2010)",
+            "Spirited Away (2001)", " Captain America: Civil War (2016)"};
 
 
     private ListView mListView;
