@@ -19,9 +19,9 @@ public class SplashScreenActivity extends AppCompatActivity {
                 .withTargetActivity(MainActivity.class)
                 .withSplashTimeOut(2000)
                 .withBackgroundColor(Color.parseColor("#1a1b29"))
-                .withHeaderText("Header")
-                .withFooterText("Footer")
-                .withBeforeLogoText("Before Logo Text")
+                .withHeaderText("")
+                .withFooterText("")
+                .withBeforeLogoText("")
                 .withAfterLogoText("")
                 .withLogo(R.mipmap.logo1);
 
