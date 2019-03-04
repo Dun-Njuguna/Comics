@@ -33,7 +33,8 @@ public class MoviesActivity extends AppCompatActivity {
         ButterKnife.bind(this);
         mListView = (ListView) findViewById(R.id.listView);
 
-
+        Typeface openSans = Typeface.createFromAsset(getAssets(), "fonts/OpenSans-Semibold.ttf");
+        mSearchTextView.setTypeface(openSans);
 
         ArrayAdapter adapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, restaurants);
         mListView.setAdapter(adapter);
