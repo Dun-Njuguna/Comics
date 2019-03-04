@@ -1,6 +1,7 @@
 package com.example.movies;
 
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -31,6 +32,8 @@ public class MoviesActivity extends AppCompatActivity {
         setContentView(R.layout.activity_movies);
         ButterKnife.bind(this);
         mListView = (ListView) findViewById(R.id.listView);
+
+
 
         ArrayAdapter adapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, restaurants);
         mListView.setAdapter(adapter);
