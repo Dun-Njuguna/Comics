@@ -1,9 +1,11 @@
-package com.example.movies;
+package com.example.movies.ui;
 
 import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+
+import com.example.movies.R;
 
 import gr.net.maroulis.library.EasySplashScreen;
 

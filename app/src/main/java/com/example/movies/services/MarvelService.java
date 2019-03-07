@@ -1,6 +1,9 @@
-package com.example.movies;
+package com.example.movies.services;
 
 import android.util.Log;
+
+import com.example.movies.Constants;
+import com.example.movies.models.Comics;
 
 import org.json.JSONArray;
 import org.json.JSONException;
