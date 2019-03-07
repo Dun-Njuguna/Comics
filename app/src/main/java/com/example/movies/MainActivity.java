@@ -15,7 +15,7 @@ import butterknife.ButterKnife;
 public class MainActivity extends AppCompatActivity implements View.OnClickListener  {
 
     @BindView(R.id.search) Button search;
-    @BindView(R.id.searchtext) EditText searchtext;
+    @BindView(R.id.searchtext) EditText title;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,9 +29,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     public void onClick(View v) {
         if(v == search) {
-            String text = searchtext.getText().toString();
+            String titleSearch = title.getText().toString();
             Intent intent = new Intent(MainActivity.this, MoviesActivity.class);
-            intent.putExtra("text", text);
+            intent.putExtra("titleSearch", titleSearch);
             startActivity(intent);
         }
     }
