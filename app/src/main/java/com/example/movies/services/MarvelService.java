@@ -66,11 +66,12 @@ public class MarvelService {
                     String title = resultJSON.getString("title");
                     String issueNumber = resultJSON.getString("issueNumber");
                     String description = resultJSON.getString("description");
-                    String mThumbnailUrl = resultJSON.getJSONArray("images").getJSONObject(0).getString("path") + "/portrait_small.jpg";
+                    String mThumbnailUrl = resultJSON.getJSONArray("images").getJSONObject(0).getString("path") + "/portrait_medium.jpg";
+                    String replaceString=mThumbnailUrl.replace("http","https");
 
-                    Comics comics =  new Comics(title,issueNumber,description,mThumbnailUrl);
+                    Comics comics =  new Comics(title,issueNumber,description,replaceString);
                     newComics.add(comics);
-                    Log.v(TAG,  mThumbnailUrl);
+                    Log.v(TAG,  replaceString);
 //                    Log.v(TAG,  title);
                     Log.v(TAG,  description);
 //                    Log.v(TAG,  issueNumber);
