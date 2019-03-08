@@ -75,19 +75,8 @@ public class MoviesActivity extends AppCompatActivity {
                         RecyclerView.LayoutManager layoutManager =
                                 new LinearLayoutManager(MoviesActivity.this);
                         mRecyclerView.setLayoutManager(layoutManager);
-                        mRecyclerView.setHasFixedSize(true);
                     }
                 });
-//
-//                try {
-//                    String jsonData = response.body().string();
-//                    if (response.isSuccessful()) {
-//                        Log.v(TAG, jsonData);
-////                        mComics = marvelService.processResults(response);
-//                    }
-//                } catch (IOException e) {
-//                    e.printStackTrace();
-//                }
             }
 
         });

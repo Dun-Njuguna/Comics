@@ -57,23 +57,30 @@ public class MarvelService {
                     .getJSONObject("data")
                     .getJSONArray("results");
 
+
+
             Log.v(TAG, "Response " + resultsJSON.toString());
             if (response.isSuccessful()) {
                 for (int i = 0; i < resultsJSON.length(); i++) {
                     JSONObject resultJSON = resultsJSON.getJSONObject(i);
                     String title = resultJSON.getString("title");
-                    String description = resultJSON.getString("description");
                     String issueNumber = resultJSON.getString("issueNumber");
-                    String mThumbnailUrl = resultJSON.getString("thumbnail");
+                    String description = resultJSON.getString("description");
+                    String mThumbnailUrl = resultJSON.getJSONArray("images").getJSONObject(0).getString("path") + "/portrait_small.jpg";
 
                     Comics comics =  new Comics(title,issueNumber,description,mThumbnailUrl);
                     newComics.add(comics);
-
+                    Log.v(TAG,  mThumbnailUrl);
+//                    Log.v(TAG,  title);
+                    Log.v(TAG,  description);
+//                    Log.v(TAG,  issueNumber);
                 }
             }
         } catch (IOException e) {
             e.printStackTrace();
         } catch (JSONException e) {
+            e.printStackTrace();
+        }catch (IndexOutOfBoundsException e) {
             e.printStackTrace();
         }
         return newComics;

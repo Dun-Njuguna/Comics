@@ -10,6 +10,7 @@ import android.widget.TextView;
 
 import com.example.movies.R;
 import com.example.movies.models.Comics;
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
@@ -35,7 +36,7 @@ public class AllComicAdapter extends RecyclerView.Adapter<AllComicAdapter.AllCom
 
     @Override
     public void onBindViewHolder(AllComicAdapter.AllComicViewHolder holder, int position) {
-        holder.bindRestaurant(mComics.get(position));
+        holder.bindComics(mComics.get(position));
     }
 
     @Override
@@ -44,10 +45,10 @@ public class AllComicAdapter extends RecyclerView.Adapter<AllComicAdapter.AllCom
     }
 
     public class AllComicViewHolder extends RecyclerView.ViewHolder {
-        @BindView(R.id.restaurantImageView) ImageView mRestaurantImageView;
-        @BindView(R.id.restaurantNameTextView) TextView mNameTextView;
-        @BindView(R.id.categoryTextView) TextView mCategoryTextView;
-        @BindView(R.id.ratingTextView) TextView mRatingTextView;
+        @BindView(R.id.comicImageView) ImageView mComicImageView;
+        @BindView(R.id.comicTitleView) TextView mNameTitleView;
+        @BindView(R.id.descriptionTextView) TextView mDescriptionTextView;
+        @BindView(R.id.issueNumberTextView) TextView mIssueNumberTextView;
         private Context mContext;
 
         public AllComicViewHolder(View itemView) {
@@ -56,10 +57,11 @@ public class AllComicAdapter extends RecyclerView.Adapter<AllComicAdapter.AllCom
             mContext = itemView.getContext();
         }
 
-        public void bindRestaurant(Comics comics) {
-            mNameTextView.setText(comics.getTitle());
-            mCategoryTextView.setText(comics.getDescription());
-            mRatingTextView.setText("Issue Number: " + comics.getIssueNumber());
+        public void bindComics(Comics comics) {
+            Picasso.get().load("http://i.imgur.com/DvpvklR.png").resize(50, 50).into(mComicImageView);
+            mNameTitleView.setText(comics.getTitle());
+            mDescriptionTextView.setText(comics.getDescription());
+            mIssueNumberTextView.setText("Issue Number: " + comics.getIssueNumber());
         }
     }
 }
