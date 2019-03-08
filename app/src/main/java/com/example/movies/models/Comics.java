@@ -9,6 +9,7 @@ public class Comics {
     private String description;
     private String mThumbnailUrl;
 
+
     public Comics (String title, String issueNumber, String description, String mThumbnailUrl){
         this.title = title;
         this.issueNumber = issueNumber;
@@ -32,5 +33,4 @@ public class Comics {
     public String getmThumbnailUrl() {
         return mThumbnailUrl;
     }
-
 }
