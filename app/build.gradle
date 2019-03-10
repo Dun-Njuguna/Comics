@@ -41,4 +41,6 @@ dependencies {
     implementation 'com.squareup.okhttp3:okhttp:3.2.0'
     implementation 'com.android.support:recyclerview-v7:+'
     implementation 'com.squareup.picasso:picasso:2.71828'
+    implementation 'org.parceler:parceler-api:1.1.12'
+    annotationProcessor 'org.parceler:parceler:1.1.12'
 }

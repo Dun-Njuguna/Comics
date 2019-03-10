@@ -12,7 +12,7 @@ tools:context=".ui.ComicDetailFragment">
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="180dp"
-        android:id="@+id/restaurantImageView"
+        android:id="@+id/comic1ImageView"
         android:src="@drawable/images"
         android:scaleType="centerCrop" />
 
@@ -28,8 +28,8 @@ tools:context=".ui.ComicDetailFragment">
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Restaurant Name"
-            android:id="@+id/restaurantNameTextView"
+            android:text="Comic Name"
+            android:id="@+id/comicNameTextView"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
             android:textSize="20sp"
@@ -39,20 +39,9 @@ tools:context=".ui.ComicDetailFragment">
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="4.5/5"
-            android:id="@+id/ratingTextView"
-            android:layout_alignTop="@+id/restaurantNameTextView"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentEnd="true"
-            android:textColor="@color/colorAccent"
-            android:textStyle="bold" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Brunch, American"
-            android:id="@+id/cuisineTextView"
-            android:layout_below="@+id/restaurantNameTextView"
+            android:text="Description"
+            android:id="@+id/descriptionTextView"
+            android:layout_below="@+id/comicNameTextView"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
             android:textStyle="italic" />
@@ -72,7 +61,7 @@ tools:context=".ui.ComicDetailFragment">
             android:layout_alignParentTop="true"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
-            android:layout_above="@+id/saveRestaurantButton"
+            android:layout_above="@+id/saveComicButton"
             android:paddingLeft="30dp"
             android:paddingTop="20dp"
             android:paddingRight="30dp">
@@ -80,7 +69,7 @@ tools:context=".ui.ComicDetailFragment">
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="View on Yelp"
+                android:text="View on Marvel"
                 android:id="@+id/websiteTextView"
                 android:drawablePadding="4dp"
                 android:textSize="15sp"
@@ -129,8 +118,8 @@ tools:context=".ui.ComicDetailFragment">
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Save Restaurant"
-            android:id="@+id/saveRestaurantButton"
+            android:text="Save Comic"
+            android:id="@+id/saveComicButton"
             android:layout_alignParentBottom="true"
             android:background="@color/colorAccent"
             android:textSize="15sp" />

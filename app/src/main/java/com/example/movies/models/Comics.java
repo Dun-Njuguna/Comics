@@ -1,7 +1,8 @@
 package com.example.movies.models;
 
-import java.util.ArrayList;
+import org.parceler.Parcel;
 
+@Parcel
 public class Comics {
 
     private String title;
@@ -9,6 +10,7 @@ public class Comics {
     private String description;
     private String mThumbnailUrl;
 
+    public Comics(){}
 
     public Comics (String title, String issueNumber, String description, String mThumbnailUrl){
         this.title = title;
