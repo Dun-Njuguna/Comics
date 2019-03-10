@@ -60,7 +60,12 @@ public class AllComicAdapter extends RecyclerView.Adapter<AllComicAdapter.AllCom
         public void bindComics(Comics comics) {
             Picasso.get().load(comics.getmThumbnailUrl()).fit().into(mComicImageView);
             mNameTitleView.setText(comics.getTitle());
-            mDescriptionTextView.setText(comics.getDescription());
+            String description = comics.getDescription();
+            if(description.equals("null")){
+                mDescriptionTextView.setText("Description not availeble");
+            }else{
+                mDescriptionTextView.setText(description);
+            }
             mIssueNumberTextView.setText("Issue Number: " + comics.getIssueNumber());
         }
     }
