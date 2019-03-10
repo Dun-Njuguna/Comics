@@ -1,6 +1,7 @@
 package com.example.movies.adapters;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -10,7 +11,10 @@ import android.widget.TextView;
 
 import com.example.movies.R;
 import com.example.movies.models.Comics;
+import com.example.movies.ui.DetailActivity;
 import com.squareup.picasso.Picasso;
+
+import org.parceler.Parcels;
 
 import java.util.ArrayList;
 
@@ -32,6 +36,7 @@ public class AllComicAdapter extends RecyclerView.Adapter<AllComicAdapter.AllCom
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.comics_list_item, parent, false);
         AllComicViewHolder viewHolder = new AllComicViewHolder(view);
         return viewHolder;
+
     }
 
     @Override
@@ -44,7 +49,7 @@ public class AllComicAdapter extends RecyclerView.Adapter<AllComicAdapter.AllCom
         return mComics.size();
     }
 
-    public class AllComicViewHolder extends RecyclerView.ViewHolder {
+    public class AllComicViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         @BindView(R.id.comicImageView) ImageView mComicImageView;
         @BindView(R.id.comicTitleView) TextView mNameTitleView;
         @BindView(R.id.descriptionTextView) TextView mDescriptionTextView;
@@ -55,6 +60,16 @@ public class AllComicAdapter extends RecyclerView.Adapter<AllComicAdapter.AllCom
             super(itemView);
             ButterKnife.bind(this, itemView);
             mContext = itemView.getContext();
+            itemView.setOnClickListener(this);
+        }
+
+        @Override
+        public void onClick(View v) {
+            int itemPosition = getLayoutPosition();
+            Intent intent = new Intent(mContext, DetailActivity.class);
+            intent.putExtra("position", itemPosition);
+            intent.putExtra("comics", Parcels.wrap(mComics));
+            mContext.startActivity(intent);
         }
 
         public void bindComics(Comics comics) {

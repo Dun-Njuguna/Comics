@@ -50,7 +50,7 @@ public class ComicDetailFragment extends Fragment {
 
         Picasso.get().load(mComic.getmThumbnailUrl()).into(mImageLabel);
 
-        mNameLabel.setText(mComic.getTitle()));
+        mNameLabel.setText(mComic.getTitle());
         mCategoriesLabel.setText(mComic.getDescription());
 //        mPhoneLabel.setText(mRestaurant.getPhone());
 //        mAddressLabel.setText(android.text.TextUtils.join(", ", mRestaurant.getAddress()));
