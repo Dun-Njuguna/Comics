@@ -1,18 +1,10 @@
 package com.example.movies.ui;
 
 import android.content.Intent;
-import android.graphics.Typeface;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
-import android.view.View;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
-import android.widget.ListView;
-import android.widget.TextView;
-import android.widget.Toast;
 
 import com.example.movies.R;
 import com.example.movies.adapters.AllComicAdapter;
@@ -28,9 +20,9 @@ import okhttp3.Call;
 import okhttp3.Callback;
 import okhttp3.Response;
 
-public class MoviesActivity extends AppCompatActivity {
+public class ComicsActivity extends AppCompatActivity {
 
-    public static final String TAG = MoviesActivity.class.getSimpleName();
+    public static final String TAG = ComicsActivity.class.getSimpleName();
     private String[] restaurants = new String[]{};
 
 
@@ -67,13 +59,13 @@ public class MoviesActivity extends AppCompatActivity {
 
                 coomics = marvelService.processResults(response);
 
-                MoviesActivity.this.runOnUiThread(new Runnable() {
+                ComicsActivity.this.runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
                         mAdapter = new AllComicAdapter(getApplicationContext(), coomics);
                         mRecyclerView.setAdapter(mAdapter);
                         RecyclerView.LayoutManager layoutManager =
-                                new LinearLayoutManager(MoviesActivity.this);
+                                new LinearLayoutManager(ComicsActivity.this);
                         mRecyclerView.setLayoutManager(layoutManager);
                     }
                 });

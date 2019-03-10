@@ -30,7 +30,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void onClick(View v) {
         if(v == search) {
             String titleSearch = title.getText().toString();
-            Intent intent = new Intent(MainActivity.this, MoviesActivity.class);
+            Intent intent = new Intent(MainActivity.this, ComicsActivity.class);
             intent.putExtra("titleSearch", titleSearch);
             startActivity(intent);
         }
