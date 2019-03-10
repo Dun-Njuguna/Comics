@@ -69,49 +69,14 @@ tools:context=".ui.ComicDetailFragment">
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="View on Marvel"
-                android:id="@+id/websiteTextView"
-                android:drawablePadding="4dp"
-                android:textSize="15sp"
-                android:textStyle="bold"
-                android:layout_marginBottom="10dp"
-                android:gravity="center" />
-
-            <!--android:textColor="@color/colorTextIcons"-->
-            <!--android:drawableLeft="@drawable/ic_exit_to_app_white_24dp"-->
-
-
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
                 android:text="(503) 223-1282"
                 android:id="@+id/phoneTextView"
                 android:drawablePadding="4dp"
-
+                android:drawableLeft="@mipmap/baseline_settings_phone_black_18dp"
                 android:textSize="15sp"
                 android:textStyle="bold"
                 android:layout_marginBottom="10dp"
                 android:gravity="center"/>
-
-            <!--android:textColor="@color/colorTextIcons"-->
-            <!--android:drawableLeft="@drawable/ic_local_phone_white_24dp"-->
-
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="123 SW Best Ever Ave. Portland, Oregon, 97222"
-                android:drawablePadding="4dp"
-                android:id="@+id/addressTextView"
-                android:textSize="15sp"
-                android:textStyle="bold"
-                android:layout_marginBottom="10dp"
-                android:gravity="center_vertical"/>
-
-            <!--android:drawableLeft="@drawable/ic_map_white_24dp"-->
-            <!--android:textColor="@color/colorTextIcons"-->
-
 
         </LinearLayout>
 
@@ -123,8 +88,6 @@ tools:context=".ui.ComicDetailFragment">
             android:layout_alignParentBottom="true"
             android:background="@color/colorAccent"
             android:textSize="15sp" />
-
-        <!--android:textColor="@color/colorTextIcons"-->
 
 
     </RelativeLayout>
