@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Movies</string>
+    <string name="app_name">Comics</string>
     <string name="title_activity_splash_screen">SplashScreenActivity</string>
 
     <!-- TODO: Remove or change this placeholder text -->

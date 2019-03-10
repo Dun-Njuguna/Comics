@@ -10,11 +10,11 @@ tools:context=".ui.ComicDetailFragment">
     android:background="@color/colorPrimary">
 
     <ImageView
-        android:layout_width="match_parent"
-        android:layout_height="180dp"
         android:id="@+id/comic1ImageView"
-        android:src="@drawable/images"
-        android:scaleType="centerCrop" />
+        android:layout_width="match_parent"
+        android:layout_height="351dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/images" />
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -52,41 +52,44 @@ tools:context=".ui.ComicDetailFragment">
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:background="@color/white">
 
         <LinearLayout
-            android:orientation="vertical"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_alignParentTop="true"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
             android:layout_above="@+id/saveComicButton"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:orientation="vertical"
             android:paddingLeft="30dp"
             android:paddingTop="20dp"
             android:paddingRight="30dp">
 
             <TextView
+                android:id="@+id/phoneTextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="(503) 223-1282"
-                android:id="@+id/phoneTextView"
-                android:drawablePadding="4dp"
-                android:drawableLeft="@mipmap/baseline_settings_phone_black_18dp"
-                android:textSize="15sp"
-                android:textStyle="bold"
                 android:layout_marginBottom="10dp"
-                android:gravity="center"/>
+                android:drawableLeft="@mipmap/baseline_settings_phone_black_18dp"
+                android:drawablePadding="4dp"
+                android:gravity="center"
+                android:text="(503) 223-1282"
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="15sp"
+                android:textStyle="bold" />
 
         </LinearLayout>
 
         <Button
+            android:id="@+id/saveComicButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Save Comic"
-            android:id="@+id/saveComicButton"
             android:layout_alignParentBottom="true"
-            android:background="@color/colorAccent"
+            android:background="@color/colorPrimaryDark"
+            android:text="Save Comic"
+            android:textColor="@color/white"
             android:textSize="15sp" />
 
 

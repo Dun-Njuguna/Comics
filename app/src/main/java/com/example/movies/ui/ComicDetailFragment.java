@@ -1,6 +1,8 @@
 package com.example.movies.ui;
 
 
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -18,13 +20,11 @@ import org.parceler.Parcels;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class ComicDetailFragment extends Fragment {
+public class ComicDetailFragment extends Fragment implements View.OnClickListener{
     @BindView(R.id.comic1ImageView) ImageView mImageLabel;
     @BindView(R.id.comicNameTextView) TextView mNameLabel;
     @BindView(R.id.descriptionTextView) TextView mCategoriesLabel;
-    @BindView(R.id.websiteTextView) TextView mWebsiteLabel;
     @BindView(R.id.phoneTextView) TextView mPhoneLabel;
-    @BindView(R.id.addressTextView) TextView mAddressLabel;
     @BindView(R.id.saveComicButton) TextView mSaveRestaurantButton;
 
     private Comics mComic;
@@ -47,14 +47,26 @@ public class ComicDetailFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_comic_detail, container, false);
         ButterKnife.bind(this, view);
-
+        mPhoneLabel.setOnClickListener(this);
         Picasso.get().load(mComic.getmThumbnailUrl()).into(mImageLabel);
-
         mNameLabel.setText(mComic.getTitle());
-        mCategoriesLabel.setText(mComic.getDescription());
-//        mPhoneLabel.setText(mRestaurant.getPhone());
-//        mAddressLabel.setText(android.text.TextUtils.join(", ", mRestaurant.getAddress()));
+//        mCategoriesLabel.setText(mComic.getDescription());
+        String description = mComic.getDescription();
+        if(description.equals("null")){
+            mCategoriesLabel.setText("Description not available");
+        }else{
+            mCategoriesLabel.setText(description);
+        }
 
         return view;
+    }
+
+    @Override
+    public void onClick(View v) {
+        if (v == mPhoneLabel) {
+            Intent phoneIntent = new Intent(Intent.ACTION_DIAL,
+                    Uri.parse("tel:" + "(503) 223-1282"));
+            startActivity(phoneIntent);
+        }
     }
 }

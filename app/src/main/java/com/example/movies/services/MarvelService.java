@@ -66,7 +66,7 @@ public class MarvelService {
                     String title = resultJSON.getString("title");
                     String issueNumber = resultJSON.getString("issueNumber");
                     String description = resultJSON.getString("description");
-                    String mThumbnailUrl = resultJSON.getJSONObject("thumbnail").getString("path") + "/portrait_medium.jpg";
+                    String mThumbnailUrl = resultJSON.getJSONObject("thumbnail").getString("path") + ".jpg";
                     String replaceString=mThumbnailUrl.replace("http","https");
 
                     Comics comics =  new Comics(title,issueNumber,description,replaceString);

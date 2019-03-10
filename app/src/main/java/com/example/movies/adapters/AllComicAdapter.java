@@ -77,7 +77,7 @@ public class AllComicAdapter extends RecyclerView.Adapter<AllComicAdapter.AllCom
             mNameTitleView.setText(comics.getTitle());
             String description = comics.getDescription();
             if(description.equals("null")){
-                mDescriptionTextView.setText("Description not availeble");
+                mDescriptionTextView.setText("Description not available");
             }else{
                 mDescriptionTextView.setText(description);
             }
