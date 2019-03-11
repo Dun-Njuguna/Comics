@@ -21,12 +21,12 @@ public class SplashScreenActivity extends AppCompatActivity {
                 .withFullScreen()
                 .withTargetActivity(MainActivity.class)
                 .withSplashTimeOut(2000)
-                .withBackgroundColor(Color.parseColor("#1a1b29"))
+                .withBackgroundColor(Color.parseColor("#e0e0e0"))
                 .withHeaderText("")
                 .withFooterText("")
                 .withBeforeLogoText("")
                 .withAfterLogoText("")
-                .withLogo(R.mipmap.logo1);
+                .withLogo(R.mipmap.comics_forge_logo);
 
         config.getHeaderTextView().setTextColor(Color.WHITE);
         config.getFooterTextView().setTextColor(Color.WHITE);

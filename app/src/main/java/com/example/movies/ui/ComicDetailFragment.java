@@ -50,7 +50,6 @@ public class ComicDetailFragment extends Fragment implements View.OnClickListene
         mPhoneLabel.setOnClickListener(this);
         Picasso.get().load(mComic.getmThumbnailUrl()).into(mImageLabel);
         mNameLabel.setText(mComic.getTitle());
-//        mCategoriesLabel.setText(mComic.getDescription());
         String description = mComic.getDescription();
         if(description.equals("null")){
             mCategoriesLabel.setText("Description not available");

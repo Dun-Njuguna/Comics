@@ -88,7 +88,7 @@ tools:context=".ui.ComicDetailFragment">
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
             android:background="@color/colorPrimaryDark"
-            android:text="Save Comic"
+            android:text=""
             android:textColor="@color/white"
             android:textSize="15sp" />
 
