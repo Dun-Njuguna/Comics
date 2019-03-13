@@ -1,13 +1,16 @@
 package com.example.movies.ui;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 
+import com.example.movies.Constants;
 import com.example.movies.R;
 import com.synnapps.carouselview.CarouselView;
 import com.synnapps.carouselview.ImageListener;
@@ -16,6 +19,9 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener  {
+
+    private SharedPreferences mSharedPreferences;
+    private SharedPreferences.Editor mEditor;
 
     @BindView(R.id.search) Button search;
     @BindView(R.id.searchtext) EditText title;
@@ -38,6 +44,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         carouselView.setImageListener(imageListener);
 
+        mSharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
+        mEditor = mSharedPreferences.edit();
+
     }
 
     ImageListener imageListener = new ImageListener() {
@@ -47,12 +56,19 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
     };
 
+    private void addToSharedPreferences(String comic) {
+        mEditor.putString(Constants.PREFERENCES_Comic_KEY, comic).apply();
+    }
+
     @Override
     public void onClick(View v) {
         if(v == search) {
             String titleSearch = title.getText().toString();
+            if(!(titleSearch).equals("")) {
+                addToSharedPreferences(titleSearch);
+            }
             Intent intent = new Intent(MainActivity.this, ComicsActivity.class);
-            intent.putExtra("titleSearch", titleSearch);
+//            intent.putExtra("titleSearch", titleSearch);
             startActivity(intent);
         }
     }

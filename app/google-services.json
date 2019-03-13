@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "869862790904",
+    "firebase_url": "https://comics-android-app.firebaseio.com",
+    "project_id": "comics-android-app",
+    "storage_bucket": "comics-android-app.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:869862790904:android:360a77f6249e3f8e",
+        "android_client_info": {
+          "package_name": "com.example.movies"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "869862790904-uriuj4ogvuv5p41t65oc98lse25qj34g.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.movies",
+            "certificate_hash": "0d2c209055ad2af3a27ef8e414756e8d7f4131ca"
+          }
+        },
+        {
+          "client_id": "869862790904-e600ap7akbdo6tkseotfh75fuojfj4sm.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAf2mRe5H8AUoX1PrEz4U04rdNb3Gf9ouM"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "869862790904-e600ap7akbdo6tkseotfh75fuojfj4sm.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

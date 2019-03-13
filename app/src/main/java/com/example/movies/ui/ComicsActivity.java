@@ -1,11 +1,15 @@
 package com.example.movies.ui;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 
+import com.example.movies.Constants;
 import com.example.movies.R;
 import com.example.movies.adapters.AllComicAdapter;
 import com.example.movies.models.Comics;
@@ -30,7 +34,8 @@ public class ComicsActivity extends AppCompatActivity {
 
     @BindView(R.id.recyclerView) RecyclerView mRecyclerView;
     private AllComicAdapter mAdapter;
-
+    private SharedPreferences mSharedPreferences;
+    private String mComicSearch;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,7 +47,12 @@ public class ComicsActivity extends AppCompatActivity {
         String search = intent.getStringExtra("titleSearch");
 //        mSearchTextView.setText("Search result for: " + search);
 
-        getComics(search);
+        mSharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
+        mComicSearch = mSharedPreferences.getString(Constants.PREFERENCES_Comic_KEY, null);
+        Log.d("Comic search ", mComicSearch);
+        if (mComicSearch != null) {
+            getComics(mComicSearch);
+        }
     }
 
     private void getComics(String search) {
