@@ -34,7 +34,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     @BindView(R.id.saved) Button mSavedComicsButton;
     @BindView(R.id.search) Button search;
-    @BindView(R.id.searchtext) EditText title;
 
     CarouselView carouselView;
 
@@ -48,21 +47,21 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 .getInstance()
                 .getReference()
                 .child(Constants.FIREBASE_CHILD_SEARCHED_COMIC);
-        mSearchedComicReferenceListener = mSearchedComicReference.addValueEventListener(new ValueEventListener() { //attach listener
-
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) { //something changed!
-                for (DataSnapshot comicSnapshot : dataSnapshot.getChildren()) {
-                    String comic = comicSnapshot.getValue().toString();
-                    Log.d("Comic updated", "comic: " + comic); //log
-                }
-            }
-
-            @Override
-            public void onCancelled(DatabaseError databaseError) { //update UI here if error occurred.
-
-            }
-        });
+//        mSearchedComicReferenceListener = mSearchedComicReference.addValueEventListener(new ValueEventListener() { //attach listener
+//
+//            @Override
+//            public void onDataChange(DataSnapshot dataSnapshot) { //something changed!
+//                for (DataSnapshot comicSnapshot : dataSnapshot.getChildren()) {
+//                    String comic = comicSnapshot.getValue().toString();
+//                    Log.d("Comic updated", "comic: " + comic); //log
+//                }
+//            }
+//
+//            @Override
+//            public void onCancelled(DatabaseError databaseError) { //update UI here if error occurred.
+//
+//            }
+//        });
 
 
         super.onCreate(savedInstanceState);
@@ -74,20 +73,16 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         carouselView.setPageCount(sampleImages.length);
 
         carouselView.setImageListener(imageListener);
-
-//        mSharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
-//        mEditor = mSharedPreferences.edit();
-
         mSavedComicsButton.setOnClickListener(this);
 
 
     }
 
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
-        mSearchedComicReference.removeEventListener(mSearchedComicReferenceListener);
-    }
+//    @Override
+//    protected void onDestroy() {
+//        super.onDestroy();
+//        mSearchedComicReference.removeEventListener(mSearchedComicReferenceListener);
+//    }
 
     ImageListener imageListener = new ImageListener() {
         @Override
@@ -101,15 +96,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     public void onClick(View v) {
         if(v == search) {
-            String titleSearch = title.getText().toString();
-            saveComicSearchToFirebase(titleSearch);
-
-
-//            if(!(titleSearch).equals("")) {
-//                addToSharedPreferences(titleSearch);
-//            }
             Intent intent = new Intent(MainActivity.this, ComicsActivity.class);
-            intent.putExtra("titleSearch", titleSearch);
             startActivity(intent);
         }
 
@@ -123,8 +110,5 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 //        mEditor.putString(Constants.PREFERENCES_Comic_KEY, comic).apply();
 //    }
 
-    public void saveComicSearchToFirebase(String titleSearch) {
-        mSearchedComicReference.push().setValue(titleSearch);
-    }
 
 }

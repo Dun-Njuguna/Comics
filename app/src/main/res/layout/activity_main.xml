@@ -22,23 +22,6 @@
         android:scaleType="centerCrop"/>
 
 
-    <EditText
-        android:id="@+id/searchtext"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/search"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true"
-        android:layout_marginStart="131dp"
-        android:layout_marginLeft="131dp"
-        android:layout_marginEnd="126dp"
-        android:layout_marginRight="126dp"
-        android:layout_marginBottom="15dp"
-        android:hint="Enter Your Search"
-        android:padding="5dp" />
-
     <Button
         android:id="@+id/search"
         android:layout_width="match_parent"
