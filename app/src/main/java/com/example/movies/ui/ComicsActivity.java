@@ -34,8 +34,8 @@ public class ComicsActivity extends AppCompatActivity {
 
     @BindView(R.id.recyclerView) RecyclerView mRecyclerView;
     private AllComicAdapter mAdapter;
-    private SharedPreferences mSharedPreferences;
-    private String mComicSearch;
+//    private SharedPreferences mSharedPreferences;
+//    private String mComicSearch;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,12 +47,15 @@ public class ComicsActivity extends AppCompatActivity {
         String search = intent.getStringExtra("titleSearch");
 //        mSearchTextView.setText("Search result for: " + search);
 
-        mSharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
-        mComicSearch = mSharedPreferences.getString(Constants.PREFERENCES_Comic_KEY, null);
-        Log.d("Comic search ", mComicSearch);
-        if (mComicSearch != null) {
-            getComics(mComicSearch);
-        }
+        getComics(search);
+
+
+//        mSharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
+//        mComicSearch = mSharedPreferences.getString(Constants.PREFERENCES_Comic_KEY, null);
+//        Log.d("Comic search ", mComicSearch);
+//        if (mComicSearch != null) {
+//            getComics(mComicSearch);
+//        }
     }
 
     private void getComics(String search) {

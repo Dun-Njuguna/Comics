@@ -5,18 +5,18 @@ import org.parceler.Parcel;
 @Parcel
 public class Comics {
 
-    private String title;
-    private String issueNumber;
-    private String description;
-    private String mThumbnailUrl;
+    String title;
+    String issueNumber;
+    String description;
+    String thumbnailUrl;
 
     public Comics(){}
 
-    public Comics (String title, String issueNumber, String description, String mThumbnailUrl){
+    public Comics (String title, String issueNumber, String description, String thumbnailUrl){
         this.title = title;
         this.issueNumber = issueNumber;
         this.description = description;
-        this.mThumbnailUrl = mThumbnailUrl;
+        this.thumbnailUrl = thumbnailUrl;
 
     }
 
@@ -32,7 +32,8 @@ public class Comics {
         return description;
     }
 
-    public String getmThumbnailUrl() {
-        return mThumbnailUrl;
+    public String getThumbnailUrl() {
+        return thumbnailUrl;
     }
+
 }

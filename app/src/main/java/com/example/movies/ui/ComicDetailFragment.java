@@ -10,9 +10,13 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.example.movies.Constants;
 import com.example.movies.R;
 import com.example.movies.models.Comics;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 import com.squareup.picasso.Picasso;
 
 import org.parceler.Parcels;
@@ -25,7 +29,7 @@ public class ComicDetailFragment extends Fragment implements View.OnClickListene
     @BindView(R.id.comicNameTextView) TextView mNameLabel;
     @BindView(R.id.descriptionTextView) TextView mCategoriesLabel;
     @BindView(R.id.phoneTextView) TextView mPhoneLabel;
-    @BindView(R.id.saveComicButton) TextView mSaveRestaurantButton;
+    @BindView(R.id.saveComicButton) TextView mSaveComicButton;
 
     private Comics mComic;
 
@@ -48,7 +52,8 @@ public class ComicDetailFragment extends Fragment implements View.OnClickListene
         View view = inflater.inflate(R.layout.fragment_comic_detail, container, false);
         ButterKnife.bind(this, view);
         mPhoneLabel.setOnClickListener(this);
-        Picasso.get().load(mComic.getmThumbnailUrl()).into(mImageLabel);
+        mSaveComicButton.setOnClickListener(this);
+        Picasso.get().load(mComic.getThumbnailUrl()).into(mImageLabel);
         mNameLabel.setText(mComic.getTitle());
         String description = mComic.getDescription();
         if(description.equals("null")){
@@ -66,6 +71,13 @@ public class ComicDetailFragment extends Fragment implements View.OnClickListene
             Intent phoneIntent = new Intent(Intent.ACTION_DIAL,
                     Uri.parse("tel:" + "(503) 223-1282"));
             startActivity(phoneIntent);
+        }
+        if (v == mSaveComicButton) {
+            DatabaseReference comicRef = FirebaseDatabase
+                    .getInstance()
+                    .getReference(Constants.FIREBASE_CHILD_Comic_Save);
+            comicRef.push().setValue(mComic);
+            Toast.makeText(getContext(), "Saved", Toast.LENGTH_SHORT).show();
         }
     }
 }
