@@ -60,5 +60,5 @@ dependencies {
     implementation 'com.synnapps:carouselview:0.1.5'
     implementation 'com.google.firebase:firebase-core:16.0.1'
     implementation 'com.firebaseui:firebase-ui-database:3.3.1'
-
+    implementation 'com.mikhaellopez:circularimageview:3.2.0'
 }
