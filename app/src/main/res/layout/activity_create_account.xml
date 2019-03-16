@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:tools="http://schemas.android.com/tools"
@@ -15,17 +16,17 @@
         android:layout_marginBottom="16dp"
         android:layout_marginTop="22dp"
         android:gravity="center_horizontal"
-        android:text="Account Login"
+        android:text="Create Account"
         android:textColor="#fff"
         android:textSize="26sp"
         android:textStyle="bold" />
 
     <RelativeLayout
         android:layout_width="381dp"
-        android:layout_height="356dp"
+        android:layout_height="wrap_content"
         android:layout_below="@+id/login_title"
         android:layout_marginLeft="30dp"
-        android:layout_marginTop="171dp"
+        android:layout_marginTop="153dp"
         android:layout_marginRight="30dp"
         android:background="@color/back"
         android:elevation="4dp"
@@ -34,7 +35,7 @@
 
         <LinearLayout
             android:layout_width="316dp"
-            android:layout_height="309dp"
+            android:layout_height="wrap_content"
             android:orientation="vertical"
             android:paddingTop="30dp">
 
@@ -45,12 +46,12 @@
                 <EditText
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginBottom="25dp"
                     android:drawableLeft="@drawable/common_google_signin_btn_icon_dark"
                     android:drawableTint="#FF4081"
                     android:hint="User Name"
                     android:inputType="textEmailAddress"
-                    android:singleLine="true"
-                    android:layout_marginBottom="25dp"/>
+                    android:singleLine="true" />
             </android.support.design.widget.TextInputLayout>
 
             <android.support.design.widget.TextInputLayout
@@ -60,7 +61,21 @@
                 <EditText
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="20dp"
+                    android:layout_marginBottom="25dp"
+                    android:drawableLeft="@drawable/common_google_signin_btn_icon_dark"
+                    android:drawableTint="#FF4081"
+                    android:hint="User Name"
+                    android:inputType="textEmailAddress"
+                    android:singleLine="true" />
+            </android.support.design.widget.TextInputLayout>
+
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <EditText
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
                     android:drawableLeft="@drawable/common_google_signin_btn_icon_light"
                     android:drawableTint="#FF4081"
                     android:hint="Password"
@@ -81,23 +96,34 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="29dp"
                 android:background="#d67601"
+                android:text="Sign up"
+                android:textAllCaps="false"
+                android:textColor="#fff"
+                android:textSize="18sp" />
+
+            <Button
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="29dp"
+                android:layout_marginRight="29dp"
+                android:background="#d67601"
                 android:text="Sign in"
                 android:textAllCaps="false"
                 android:textColor="#fff"
                 android:textSize="18sp" />
+
         </LinearLayout>
     </RelativeLayout>
 
-    <ImageButton
-        android:id="@+id/user_profile_photo"
-        android:layout_width="119dp"
-        android:layout_height="113dp"
-        android:layout_below="@+id/login_title"
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:srcCompat="@tools:sample/avatars"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="16dp"
-        android:background="@color/white"
-        android:elevation="4dp"
-        android:src="@drawable/ml" />
+        android:layout_below="@+id/login_title" />
+
+
 </RelativeLayout>
 
 
