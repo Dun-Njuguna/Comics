@@ -1,18 +1,31 @@
 package com.example.movies.ui;
 
 import android.content.Intent;
+import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.movies.R;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
 public class LoginActivity extends AppCompatActivity implements View.OnClickListener{
     @BindView(R.id.registerTextView) TextView mRegisterTextView;
+    @BindView(R.id.button3) TextView mLoginButton;
+    @BindView(R.id.email) EditText mEmailEditText;
+    @BindView(R.id.password) EditText mPasswordEditText;
+    private FirebaseAuth mAuth;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,7 +33,9 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         setContentView(R.layout.activity_login);
 
         ButterKnife.bind(this);
+        mAuth = FirebaseAuth.getInstance();
         mRegisterTextView.setOnClickListener(this);
+        mLoginButton.setOnClickListener(this);
     }
 
     @Override
@@ -30,5 +45,33 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
             startActivity(intent);
             finish();
         }
+        if (view == mLoginButton) {
+            loginWithPassword();
+        }
+    }
+
+    private void loginWithPassword() {
+        String email = mEmailEditText.getText().toString().trim();
+        String password = mPasswordEditText.getText().toString().trim();
+        if (email.equals("")) {
+            mEmailEditText.setError("Please enter your email");
+            return;
+        }
+        if (password.equals("")) {
+            mPasswordEditText.setError("Password cannot be blank");
+            return;
+        }
+
+        mAuth.signInWithEmailAndPassword(email, password)
+                .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+
+                    @Override
+                    public void onComplete(@NonNull Task<AuthResult> task) {
+                        if (!task.isSuccessful()) {
+                            Toast.makeText(LoginActivity.this, "Authentication failed.",
+                                    Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                });
     }
 }
