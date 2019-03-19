@@ -16,12 +16,13 @@ This project has been written using java and firebase database.
 ## Behaviour driven Development (BDD)
 |#User inputs   |  #Example outputs |
 |---------------|-------------------|
-
+|user creates account      |  Account is created |
+|user authenticates into application |  user is logged in and main page is displayed |
 |user searches for a marvel comic       |  comics are displayed |
-
 |user selects a comic of choices     |  more details are displayed  |
-
 | if user clicks on phone number      | phone app is open  |
+|if user chooses to save comic       |  comic is saved |
+|user clicks on saved comics       |  comics are displayed |
 
 
 ---------------------------------------------------------------------------------
@@ -30,7 +31,7 @@ This project has been written using java and firebase database.
 To use the application
   1. Clone the repository.
   2. Navigate to the folder
-  3. Build to install depedencies and run.
+  3. Build to install dependencies and run.
 
 ---------------------------------------------------------------------
 

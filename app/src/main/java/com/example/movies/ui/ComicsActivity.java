@@ -58,7 +58,7 @@ public class ComicsActivity extends AppCompatActivity {
 
         mSharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
         mComicSearch = mSharedPreferences.getString(Constants.PREFERENCES_Comic_KEY, null);
-        Log.d("Comic search ", mComicSearch);
+//        Log.d("Comic search ", mComicSearch);
         if (mComicSearch != null) {
             getComics(mComicSearch);
         }
