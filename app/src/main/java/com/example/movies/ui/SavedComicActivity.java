@@ -82,7 +82,7 @@ public class SavedComicActivity extends AppCompatActivity implements OnStartDrag
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         String uid = user.getUid();
         Log.v(TAG, "Response " + uid);
-        mComicReference = FirebaseDatabase.getInstance().getReference(Constants.FIREBASE_CHILD_Comic_Save );
+        mComicReference = FirebaseDatabase.getInstance().getReference(Constants.FIREBASE_CHILD_Comic_Save ).child(uid);
         Log.v(TAG, "ssssss " + mComicReference);
         FirebaseRecyclerOptions<Comics> options =
                 new FirebaseRecyclerOptions.Builder<Comics>()
