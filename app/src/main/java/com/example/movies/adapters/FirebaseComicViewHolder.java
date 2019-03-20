@@ -25,6 +25,7 @@ import org.parceler.Parcels;
 import java.util.ArrayList;
 
 public class FirebaseComicViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
+    public  ImageView mComicImageView;
     View mView;
     Context mContext;
 
@@ -36,11 +37,11 @@ public class FirebaseComicViewHolder extends RecyclerView.ViewHolder implements 
     }
 
     public void bindComics(Comics comics) {
-        ImageView comicsImageView = (ImageView) mView.findViewById(R.id.comicImageView);
+        mComicImageView = (ImageView) mView.findViewById(R.id.comicImageView);
         TextView titleTextView = (TextView) mView.findViewById(R.id.comicTitleView);
         TextView description = (TextView) mView.findViewById(R.id.descriptionTextView);
 
-        Picasso.get().load(comics.getThumbnailUrl()).into(comicsImageView);
+        Picasso.get().load(comics.getThumbnailUrl()).into(mComicImageView);
 
         titleTextView.setText(comics.getTitle());
         description.setText(comics.getDescription());

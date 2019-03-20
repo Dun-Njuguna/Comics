@@ -9,7 +9,7 @@ public class Comics {
     String issueNumber;
     String description;
     String thumbnailUrl;
-
+    private String pushId;
     public Comics(){}
 
     public Comics (String title, String issueNumber, String description, String thumbnailUrl){
@@ -34,6 +34,14 @@ public class Comics {
 
     public String getThumbnailUrl() {
         return thumbnailUrl;
+    }
+
+    public String getPushId() {
+        return pushId;
+    }
+
+    public void setPushId(String pushId) {
+        this.pushId = pushId;
     }
 
 }

@@ -15,6 +15,8 @@ import android.widget.Toast;
 import com.example.movies.Constants;
 import com.example.movies.R;
 import com.example.movies.models.Comics;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.squareup.picasso.Picasso;
@@ -72,12 +74,25 @@ public class ComicDetailFragment extends Fragment implements View.OnClickListene
                     Uri.parse("tel:" + "(503) 223-1282"));
             startActivity(phoneIntent);
         }
+
         if (v == mSaveComicButton) {
-            DatabaseReference comicRef = FirebaseDatabase
+
+            //save restaurant specific to user
+            FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+            String uid = user.getUid();
+            DatabaseReference eventRef = FirebaseDatabase
                     .getInstance()
-                    .getReference(Constants.FIREBASE_CHILD_Comic_Save);
-            comicRef.push().setValue(mComic);
+                    .getReference(Constants.FIREBASE_CHILD_Comic_Save)
+                    .child(uid);
+
+            DatabaseReference pushref = eventRef.push();
+            String pushId = pushref.getKey();
+            mComic.setPushId(pushId);
+            pushref.setValue(mComic);
+
             Toast.makeText(getContext(), "Saved", Toast.LENGTH_SHORT).show();
         }
+
+
     }
 }
