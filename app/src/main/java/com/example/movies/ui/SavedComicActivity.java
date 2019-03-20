@@ -54,7 +54,7 @@ public class SavedComicActivity extends AppCompatActivity {
             @NonNull
             @Override
             public FirebaseComicViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-                View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.comics_list_item, parent, false);
+                View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.comic_list_item_drag, parent, false);
                 return new FirebaseComicViewHolder(view);
             }
         };
