@@ -20,7 +20,7 @@ This project has been written using java and firebase database.
 |user authenticates into application |  user is logged in and main page is displayed |
 |user searches for a marvel comic       |  comics are displayed |
 |user selects a comic of choices     |  more details are displayed  |
-| if user clicks on phone number      | phone app is open  |
+|if user clicks on phone number      | phone app is open  |
 |if user chooses to save comic       |  comic is saved |
 |user clicks on saved comics       |  comics are displayed |
 
