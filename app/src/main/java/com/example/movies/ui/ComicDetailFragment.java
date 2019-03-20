@@ -58,11 +58,11 @@ public class ComicDetailFragment extends Fragment implements View.OnClickListene
         Picasso.get().load(mComic.getThumbnailUrl()).into(mImageLabel);
         mNameLabel.setText(mComic.getTitle());
         String description = mComic.getDescription();
-        if(description.equals("null")){
-            mCategoriesLabel.setText("Description not available");
-        }else{
+//        if(description.equals("null")){
+//            mCategoriesLabel.setText("Description not available");
+//        }else{
             mCategoriesLabel.setText(description);
-        }
+//        }
 
         return view;
     }

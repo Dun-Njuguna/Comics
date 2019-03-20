@@ -27,9 +27,32 @@ public class FirebaseComicsListAdapter extends FirebaseRecyclerAdapter<Comics, F
         mOnStartDragListener = onStartDragListener;
         mContext = context;
     }
-//
+
+    @Override
+    protected void onBindViewHolder(final FirebaseComicViewHolder viewHolder, int position, Comics model) {
+        viewHolder.bindComics(model);
+        viewHolder.mComicImageView.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                if (event.getActionMasked() == MotionEvent.ACTION_DOWN) {
+                    mOnStartDragListener.onStartDrag(viewHolder);
+                }
+                return false;
+            }
+        });
+    }
+
+
+    @NonNull
+    @Override
+    public FirebaseComicViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.comic_list_item_drag, parent, false);
+        return new FirebaseComicViewHolder(view);
+    }
+
+
 //    @Override
-//    protected void onBindViewHolder(final FirebaseComicViewHolder viewHolder, int position, @NonNull Comics model) {
+//    protected void onBindViewHolder(final FirebaseComicViewHolder viewHolder, int position,Comics model) {
 //        viewHolder.bindComics(model);
 //        viewHolder.mComicImageView.setOnTouchListener(new View.OnTouchListener() {
 //            @Override
@@ -43,36 +66,16 @@ public class FirebaseComicsListAdapter extends FirebaseRecyclerAdapter<Comics, F
 //    }
 
 
-
     @Override
-    public FirebaseComicViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.comic_list_item_drag, parent, false);
-        return new FirebaseComicViewHolder(view);
-    }
-
-
-    @Override
-    protected void onBindViewHolder(final FirebaseComicViewHolder viewHolder, int position,Comics model) {
-        viewHolder.bindComics(model);
-        viewHolder.mComicImageView.setOnTouchListener(new View.OnTouchListener() {
-            @Override
-            public boolean onTouch(View v, MotionEvent event) {
-                if (event.getActionMasked() == MotionEvent.ACTION_DOWN) {
-                    mOnStartDragListener.onStartDrag(viewHolder);
-                }
-                return false;
-            }
-        });
-    }
-
-    @Override
-    public boolean onItemMove(int fromPosition, int toPosition){
+    public boolean onItemMove(int fromPosition, int toPosition) {
+        notifyItemMoved(fromPosition, toPosition);
         return false;
     }
 
     @Override
-    public void onItemDismiss(int position){
-
+    public void onItemDismiss(int position) {
+        getRef(position).removeValue();
     }
+
 
 }
