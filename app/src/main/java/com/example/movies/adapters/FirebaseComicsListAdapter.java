@@ -2,6 +2,7 @@ package com.example.movies.adapters;
 
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
@@ -10,6 +11,7 @@ import android.view.ViewGroup;
 
 import com.example.movies.R;
 import com.example.movies.models.Comics;
+import com.example.movies.ui.DetailActivity;
 import com.example.movies.util.ItemTouchHelperAdapter;
 import com.example.movies.util.OnStartDragListener;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
@@ -18,6 +20,9 @@ import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.Query;
+
+import org.parceler.Parcels;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -30,7 +35,7 @@ public class FirebaseComicsListAdapter extends FirebaseRecyclerAdapter<Comics, F
     private ChildEventListener mChildEventListener;
     private ArrayList<Comics> mComics = new ArrayList<>();
 
-    public FirebaseComicsListAdapter(FirebaseRecyclerOptions<Comics> options, DatabaseReference ref, OnStartDragListener onStartDragListener, Context context){
+    public FirebaseComicsListAdapter(FirebaseRecyclerOptions<Comics> options, Query ref, OnStartDragListener onStartDragListener, Context context){
         super(options);
         mRef = ref.getRef();
         mOnStartDragListener = onStartDragListener;
@@ -76,6 +81,17 @@ public class FirebaseComicsListAdapter extends FirebaseRecyclerAdapter<Comics, F
                     mOnStartDragListener.onStartDrag(viewHolder);
                 }
                 return false;
+            }
+        });
+
+        viewHolder.itemView.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(mContext, DetailActivity.class);
+                intent.putExtra("position", viewHolder.getAdapterPosition());
+                intent.putExtra("comics", Parcels.wrap(mComics));
+                mContext.startActivity(intent);
             }
         });
     }

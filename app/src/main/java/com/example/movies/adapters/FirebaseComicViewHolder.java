@@ -24,7 +24,7 @@ import org.parceler.Parcels;
 
 import java.util.ArrayList;
 
-public class FirebaseComicViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
+public class FirebaseComicViewHolder extends RecyclerView.ViewHolder  {
     public  ImageView mComicImageView;
     View mView;
     Context mContext;
@@ -33,7 +33,7 @@ public class FirebaseComicViewHolder extends RecyclerView.ViewHolder implements 
         super(itemView);
         mView = itemView;
         mContext = itemView.getContext();
-        itemView.setOnClickListener(this);
+//        itemView.setOnClickListener(this);
     }
 
     public void bindComics(Comics comics) {
@@ -46,33 +46,35 @@ public class FirebaseComicViewHolder extends RecyclerView.ViewHolder implements 
         titleTextView.setText(comics.getTitle());
         description.setText(comics.getDescription());
     }
-      @Override
-      public void onClick(View view) {
 
-          final ArrayList<Comics> comics = new ArrayList<>();
-          DatabaseReference ref = FirebaseDatabase.getInstance().getReference(Constants.FIREBASE_CHILD_Comic_Save);
-          ref.addListenerForSingleValueEvent(new ValueEventListener() {
+//      @Override
+//      public void onClick(View view) {
+//
+//          final ArrayList<Comics> comics = new ArrayList<>();
+//          DatabaseReference ref = FirebaseDatabase.getInstance().getReference(Constants.FIREBASE_CHILD_Comic_Save);
+//          ref.addListenerForSingleValueEvent(new ValueEventListener() {
+//
+//              @Override
+//              public void onDataChange(DataSnapshot dataSnapshot) {
+//                  for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
+//                      comics.add(snapshot.getValue(Comics.class));
+//                  }
+//
+//                  int itemPosition = getLayoutPosition();
+//
+//                  Intent intent = new Intent(mContext, DetailActivity.class);
+//                  intent.putExtra("position", itemPosition + "");
+//                  intent.putExtra("comics", Parcels.wrap(comics));
+//
+//                  mContext.startActivity(intent);
+//              }
+//
+//              @Override
+//              public void onCancelled(DatabaseError databaseError) {
+//              }
+//          });
+//
+//      };
 
-              @Override
-              public void onDataChange(DataSnapshot dataSnapshot) {
-                  for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
-                      comics.add(snapshot.getValue(Comics.class));
-                  }
-
-                  int itemPosition = getLayoutPosition();
-
-                  Intent intent = new Intent(mContext, DetailActivity.class);
-                  intent.putExtra("position", itemPosition + "");
-                  intent.putExtra("comics", Parcels.wrap(comics));
-
-                  mContext.startActivity(intent);
-              }
-
-              @Override
-              public void onCancelled(DatabaseError databaseError) {
-              }
-          });
-
-      };
 }
 
