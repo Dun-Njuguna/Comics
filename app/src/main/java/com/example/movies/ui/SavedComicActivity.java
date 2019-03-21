@@ -24,6 +24,7 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -82,14 +83,27 @@ public class SavedComicActivity extends AppCompatActivity implements OnStartDrag
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         String uid = user.getUid();
         Log.v(TAG, "Response " + uid);
-        mComicReference = FirebaseDatabase.getInstance().getReference(Constants.FIREBASE_CHILD_Comic_Save ).child(uid);
+
+//        mComicReference = FirebaseDatabase.getInstance()
+//                .getReference(Constants.FIREBASE_CHILD_Comic_Save )
+//                .child(uid)
+
+        Query query = FirebaseDatabase.getInstance()
+                .getReference(Constants.FIREBASE_CHILD_Comic_Save )
+                .child(uid)
+                .orderByChild(Constants.FIREBASE_QUERY_INDEX);
+
         Log.v(TAG, "ssssss " + mComicReference);
+
+
         FirebaseRecyclerOptions<Comics> options =
                 new FirebaseRecyclerOptions.Builder<Comics>()
-                        .setQuery(mComicReference, Comics.class)
+                        .setQuery(query, Comics.class)
                         .build();
 
-        mFirebaseAdapter = new FirebaseComicsListAdapter(options, mComicReference, this, this);
+//        mFirebaseAdapter = new FirebaseComicsListAdapter(options, mComicReference, this, this);
+
+        mFirebaseAdapter = new FirebaseComicsListAdapter(options, query, this, this);
 
         mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
         mRecyclerView.setAdapter(mFirebaseAdapter);
@@ -114,5 +128,11 @@ public class SavedComicActivity extends AppCompatActivity implements OnStartDrag
     }
     public void onStartDrag(RecyclerView.ViewHolder viewHolder){
         mItemTouchHelper.startDrag(viewHolder);
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        mFirebaseAdapter.stopListening();
     }
 }

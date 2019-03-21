@@ -9,5 +9,5 @@ public class Constants {
     public static final String PREFERENCES_Comic_KEY = "comic";
     public static final String FIREBASE_CHILD_SEARCHED_COMIC = "searchedComic";
     public static final String FIREBASE_CHILD_Comic_Save = "comics";
-
+    public static final String FIREBASE_QUERY_INDEX = "index";
 }

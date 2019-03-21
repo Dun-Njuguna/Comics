@@ -10,6 +10,7 @@ public class Comics {
     String description;
     String thumbnailUrl;
     private String pushId;
+    String index;
     public Comics(){}
 
     public Comics (String title, String issueNumber, String description, String thumbnailUrl){
@@ -17,7 +18,7 @@ public class Comics {
         this.issueNumber = issueNumber;
         this.description = description;
         this.thumbnailUrl = thumbnailUrl;
-
+        this.index = "not_specified";
     }
 
     public String getTitle() {
@@ -42,6 +43,14 @@ public class Comics {
 
     public void setPushId(String pushId) {
         this.pushId = pushId;
+    }
+
+    public String getIndex() {
+        return index;
+    }
+
+    public void setIndex(String index) {
+        this.index = index;
     }
 
 }
